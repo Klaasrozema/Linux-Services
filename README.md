@@ -3,7 +3,7 @@ Uitwerking van Netwerkservices, onderdeel Linux.
 
 
 
-# opdrachtomschrijving
+# Opdrachtomschrijving
 
 Voor deze eindopdracht dient in de Azure omgeving het volgende via Saltstack en scripts gerealiseerd te worden:
 
