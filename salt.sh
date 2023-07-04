@@ -70,6 +70,6 @@ else
 	sudo printf "$Minion_Name" > /etc/salt/minion_id
 	sudo service salt-minion start
 	echo "####################"
-	echo "Salt Minion has been installed Succefully"
+	echo "Salt Minion installatie voltooid"
 	echo "####################"
 fi
