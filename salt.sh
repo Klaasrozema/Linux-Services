@@ -38,7 +38,6 @@ if [ "$SALT" = "Master" ]; then
 		echo "Installatie Salt Minion voltooid. "
 		echo "####################"
 
-
 	else
 		echo "Minion is niet op de juiste manier geinstalleerd"
 	fi
@@ -53,7 +52,6 @@ if [ "$SALT" = "Master" ]; then
 		echo "Sleutel niet geaccepteerd"
 	fi
 
-
 else
 	#install minion
 	sudo curl -L https://bootstrap.saltstack.com -o install_salt.sh
@@ -64,7 +62,7 @@ else
 	#Minion name changing
 	sudo service salt-minion stop
 	read -p "Minion naam: " Minion_Name
-	sleep 1
+	sleep 30
 	sudo rm -rf /etc/salt/minion_id
 	sudo touch /etc/salt/minion_id && sudo chmod 777 /etc/salt/minion_id
 	sudo printf "$Minion_Name" > /etc/salt/minion_id
