@@ -62,7 +62,7 @@ else
 	#Minion name changing
 	sudo service salt-minion stop
 	read -p "Minion naam: " Minion_Name
-	sleep 30
+	sleep 35
 	sudo rm -rf /etc/salt/minion_id
 	sudo touch /etc/salt/minion_id && sudo chmod 777 /etc/salt/minion_id
 	sudo printf "$Minion_Name" > /etc/salt/minion_id
