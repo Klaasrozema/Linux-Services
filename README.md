@@ -16,7 +16,7 @@ Zet op de server Saltstack Master en maak van de server een minion zodat deze oo
 
 # Realisatie:
 
-	Voor het realiseren van de opdracht zal gebruik worden gemaakt van de volgende servers op een LAN netwerk. Deze maken gebruik van bijbehorende services:
+Voor het realiseren van de opdracht zal gebruik worden gemaakt van de volgende servers op een LAN netwerk. Deze maken gebruik van bijbehorende services:
 
 	- Server 0 (Hoofdserver)
 		- Salt Master + Minion
@@ -33,8 +33,8 @@ Zet op de server Saltstack Master en maak van de server een minion zodat deze oo
 		- Logging naar hoofdserver
 		- Docker
 
-	Om de logservice te realiseren wordt gebruik gemaakt van syslog.
-	Om de monitoring te realiseren wordt gebruik gemaakt van Nagios.
+Om de logservice te realiseren wordt gebruik gemaakt van syslog.
+Om de monitoring te realiseren wordt gebruik gemaakt van Nagios.
 
-	De keuze voor beide services is tot stand gekomen door eerdere ervaring met beide services in eerdere projecten.
+De keuze voor beide services is tot stand gekomen door eerdere ervaring met beide services in eerdere projecten.
 
