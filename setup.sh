@@ -7,8 +7,8 @@
 
 #Updaten huidige machine
 
-	sudo apt get update
-	sudo apt get upgrade -y
+	sudo apt get-update
+	sudo apt get-upgrade -y
 	echo "Updates uitgevoerd"
 	wait 30
 
