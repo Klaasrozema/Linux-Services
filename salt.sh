@@ -11,10 +11,10 @@ if [ "$SALT" = "Master" ]; then
 	#install master
 	cd /home/user
 	sudo curl -o bootstrap-salt.sh -L https://bootstrap.saltproject.io
-	chmod +x bootstrap-salt.sh
-	sudo sh install_salt.sh -M
+	sudo chmod +x bootstrap-salt.sh
+	sudo ./bootstrap-salt.sh -M
 	echo "####################"
-	echo "Installatie Salt Master voltooid. "
+	echo "Installatie Salt Master & Minion voltooid. "
 	echo "####################"
 	
 	sudo mkdir /srv/salt
@@ -57,7 +57,7 @@ else
 	sudo curl -L https://bootstrap.saltstack.com -o install_salt.sh
 	read -p "Geef het IP-adres van de Master " IP_Master
 	#sudo apt-install update 
-	sudo sh install_salt.sh -A $IP_Master
+	sudo ./bootstrap-salt.sh -A $IP_Master
 	
 	#Minion name changing
 	sudo service salt-minion stop

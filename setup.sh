@@ -5,6 +5,10 @@
 
 #Benodigde acties en bijbehorende commando's voor het opzetten en installeren van salt services
 
+#Installatie van benodigde libraries
+	sudo apt install net-tools
+	sudo apt install curl
+
 #Updaten huidige machine
 
 	sudo apt-get update
