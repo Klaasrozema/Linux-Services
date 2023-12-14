@@ -10,8 +10,8 @@ done
 if [ "$SALT" = "Master" ]; then
 	#install master
 	cd /home/user
-	sudo curl -L https://bootstrap.saltstack.com -o install_salt.sh
-	#sudo apt-get update
+	sudo curl -o bootstrap-salt.sh -L https://bootstrap.saltproject.io
+	chmod +x bootstrap-salt.sh
 	sudo sh install_salt.sh -M
 	echo "####################"
 	echo "Installatie Salt Master voltooid. "
