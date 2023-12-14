@@ -9,11 +9,15 @@
 
 	sudo apt get update
 	sudo apt get upgrade -y
+	echo "Updates uitgevoerd"
 	wait 30
 
-#Allereerst: kopie van repo naar lokale server
+#Kopie van repo naar lokale server
+#Verwijder oude kopie van repo als deze al bestaat
 
 	sudo apt install git
+	rm -rf Linux-Services 
 	sudo git clone https://github.com/Klaasrozema/Linux-Services
+	echo "Github geinstalleerd en repo gecloned"
 
-	
+	sh Linux-Services/salt.sh
