@@ -32,13 +32,13 @@ install_minion_only() {
 }
 
 echo "Welkom bij het SaltStack installatiescript!"
-echo "Wil je Salt Master en Minion installeren? (ja/nee): "
-read install_master_minion
+echo "Wil je Salt Master en Minion installeren? (y/n): "
+read install_choice
 
 # Omzetten naar kleine letters voor vergelijking
-install_master_minion=$(echo "$install_master_minion" | tr '[:upper:]' '[:lower:]')
+install_choice=$(echo "$install_choice" | tr '[:upper:]' '[:lower:]')
 
-if [ "$install_master_minion" == "ja" ]; then
+if [[ "$install_choice" == "y" ]]; then
     echo "Voer het IP-adres van de Salt Master in: "
     read master_ip
 
@@ -46,14 +46,14 @@ if [ "$install_master_minion" == "ja" ]; then
     read minion_id
 
     install_master_and_minion
-elif [ "$install_master_minion" == "nee" ]; then
-    echo "Wil je alleen de Salt Minion installeren? (ja/nee): "
+elif [[ "$install_choice" == "n" ]]; then
+    echo "Wil je alleen de Salt Minion installeren? (y/n): "
     read install_minion
 
     # Omzetten naar kleine letters voor vergelijking
     install_minion=$(echo "$install_minion" | tr '[:upper:]' '[:lower:]')
 
-    if [ "$install_minion" == "ja" ]; then
+    if [[ "$install_minion" == "y" ]]; then
         echo "Voer het IP-adres van de Salt Master in: "
         read master_ip
 
