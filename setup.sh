@@ -24,4 +24,4 @@
 	sudo git clone https://github.com/Klaasrozema/Linux-Services
 	echo "Github geinstalleerd en repo gecloned"
 
-	sudo sh Linux-Services/salt.sh
+	#sudo bash Linux-Services/salt.sh

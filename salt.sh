@@ -1,73 +1,74 @@
-#! /bin/bash
+#!/bin/bash
 
-read -p "Installatie van Salt Master of Minion? " SALT
+#	--------------------
+#	File: salt.sh
+#	Author: Klaas Rozema
+#	--------------------
 
-while [ "$SALT" != "Master" ] && [ "$SALT" != "Minion" ]
-do
-	echo "Geen juiste methode gekozen, probeer het later opnieuw"
-done
+# Installatie van Salt Master en Minion
+install_master_and_minion() {
+    # Download bootstrap-salt.sh
+    sudo curl -o bootstrap-salt.sh -L https://bootstrap.saltproject.io
 
-if [ "$SALT" = "Master" ]; then
-	#install master
-	cd /home/user
-	sudo curl -o bootstrap-salt.sh -L https://bootstrap.saltproject.io
-	sudo chmod +x bootstrap-salt.sh
-	sudo ./bootstrap-salt.sh -M
-	echo "####################"
-	echo "Installatie Salt Master & Minion voltooid. "
-	echo "####################"
-	
-	sudo mkdir /srv/salt
-	cd "/home/user/Linux-Services/States/"
-	sudo cp * /srv/salt/
-	cd /home/user/
-	
-	read -p "Wil je de Minion installeren op deze Master? [y/n]" minion
-	if [ "$minion" = "y" ]; then 
-		read -p "Geef een IP-adres aan de Master: " IP_Master
-		sudo sh install_salt.sh -A $IP_Master
-		#Minion naamverandering
-		sudo service salt-minion stop
-		read -p "Minion naam: " Minion_Name
-		sleep 1
-		sudo rm -rf /etc/salt/minion_id
-		sudo touch /etc/salt/minion_id && sudo chmod 777 /etc/salt/minion_id
-		sudo printf "$Minion_Name" > /etc/salt/minion_id
-		sudo service salt-minion start
-		echo "####################"
-		echo "Installatie Salt Minion voltooid. "
-		echo "####################"
+    # Install Salt Master and Minion
+    sudo sh bootstrap-salt.sh -M -A "$master_ip" stable
 
-	else
-		echo "Minion is niet op de juiste manier geinstalleerd"
-	fi
+    # Set Minion ID
+    echo "id: $minion_id" | sudo tee /etc/salt/minion
 
-	read -p "Wil je de sleutel accepteren? [y/n]" key
-	if [ "$key" = "y" ]; then
-		sudo salt-key -A
-		echo "####################"
-		echo "Sleutel geaccepteerd"
-		echo "####################"
-	else 
-		echo "Sleutel niet geaccepteerd"
-	fi
+    # Start Salt Master and Minion services
+    sudo systemctl start salt-master
+    sudo systemctl start salt-minion
+}
 
+# Functie voor het installeren van alleen de Salt Minion
+install_minion_only() {
+    # Download bootstrap-salt.sh
+    sudo curl -o bootstrap-salt.sh -L https://bootstrap.saltproject.io
+
+    # Install Salt Minion only
+    sudo sh bootstrap-salt.sh -A "$master_ip" stable
+
+    # Set Minion ID
+    echo "id: $minion_id" | sudo tee /etc/salt/minion
+
+    # Start Salt Minion service
+    sudo systemctl start salt-minion
+}
+
+echo "Welkom bij het SaltStack installatiescript!"
+echo "Wil je Salt Master en Minion installeren? (y/n): "
+read install_choice
+
+# Omzetten naar kleine letters voor vergelijking
+install_choice=$(echo "$install_choice" | tr '[:upper:]' '[:lower:]')
+
+if [[ "$install_choice" == "y" ]]; then
+    echo "Voer het IP-adres van de Salt Master in: "
+    read master_ip
+
+    echo "Voer het Minion ID in: "
+    read minion_id
+
+    install_master_and_minion
+elif [[ "$install_choice" == "n" ]]; then
+    echo "Wil je alleen de Salt Minion installeren? (y/n): "
+    read install_minion
+
+    # Omzetten naar kleine letters voor vergelijking
+    install_minion=$(echo "$install_minion" | tr '[:upper:]' '[:lower:]')
+
+    if [[ "$install_minion" == "y" ]]; then
+        echo "Voer het IP-adres van de Salt Master in: "
+        read master_ip
+
+        echo "Voer het Minion ID in: "
+        read minion_id
+
+        install_minion_only
+    else
+        echo "SaltStack installatie overgeslagen."
+    fi
 else
-	#install minion
-	sudo curl -L https://bootstrap.saltstack.com -o install_salt.sh
-	read -p "Geef het IP-adres van de Master " IP_Master
-	#sudo apt-install update 
-	sudo ./bootstrap-salt.sh -A $IP_Master
-	
-	#Minion name changing
-	sudo service salt-minion stop
-	read -p "Minion naam: " Minion_Name
-	sleep 35
-	sudo rm -rf /etc/salt/minion_id
-	sudo touch /etc/salt/minion_id && sudo chmod 777 /etc/salt/minion_id
-	sudo printf "$Minion_Name" > /etc/salt/minion_id
-	sudo service salt-minion start
-	echo "####################"
-	echo "Salt Minion installatie voltooid"
-	echo "####################"
+    echo "Ongeldige keuze. SaltStack installatie overgeslagen."
 fi
