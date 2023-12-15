@@ -1,5 +1,5 @@
 #! /bin/bash
-
+ 
 #   --------------------
 #   File: syslog_install.sh
 #   Author: Klaas Rozema
