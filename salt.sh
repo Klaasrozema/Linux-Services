@@ -10,6 +10,9 @@ install_master_and_minion() {
     # Download bootstrap-salt.sh
     sudo curl -o bootstrap-salt.sh -L https://bootstrap.saltproject.io
 
+#   Installeer dependencies voor Salt   
+    sudo apt-get install libzmq3-dev -y
+
     # Install Salt Master and Minion
     sudo sh bootstrap-salt.sh -M -A "$master_ip" stable
 
