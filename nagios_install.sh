@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#       --------------------
+#       File: nagios_install.sh
+#       Author: Klaas Rozema
+#       --------------------
+
 #Vorbereiding op installatie
 sudo apt install -y autoconf bc gawk dc build-essential gcc libc6 make wget unzip apache2 php libapache2-mod-php7.2 libgd-dev libmcrypt-dev make libssl-dev snmp libnet-snmp-perl gettext
 

@@ -1,5 +1,10 @@
 #! /bin/bash
 
+#   --------------------
+#   File: syslog_install.sh
+#   Author: Klaas Rozema
+#   --------------------
+
 #Syslog installatie
 sudo apt install syslog-ng -y
 
@@ -33,8 +38,8 @@ destination d_logs {
 sudo mkdir /var/log/syslog-ng
 sudo touch /var/log/syslog-ng/logs.txt
 
-sudo systemctl start syslog-ng
 sudo systemctl enable syslog-ng
+sudo systemctl start syslog-ng
 
 echo "####################"
 echo "Installatie Syslog voltooid. "

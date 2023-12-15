@@ -1,4 +1,10 @@
  #!/bin/bash  
+
+#   --------------------
+#   File: salt.sh
+#   Author: Klaas Rozema
+#   --------------------
+ 
  # Script voor installatie en configuratie van Wordpress
  
  IP=$(hostname -I | cut -f1 -d' ')
