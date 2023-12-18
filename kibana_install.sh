@@ -5,7 +5,7 @@
 #   Author: Klaas Rozema
 #   --------------------
 
-# Voeg de Elasticsearch APT-repository toe
+# Voeg de Elasticsearch repository toe
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo sh -c 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" > /etc/apt/sources.list.d/kibana.list'
 

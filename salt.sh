@@ -43,7 +43,7 @@ echo "Welkom bij het SaltStack installatiescript!"
 echo "Wil je Salt Master en Minion installeren? (y/n): "
 read install_choice
 
-# Omzetten naar kleine letters voor vergelijking
+# Omzetten naar kleine letters voor vergelijking: !!ANDERS ERROR!!
 install_choice=$(echo "$install_choice" | tr '[:upper:]' '[:lower:]')
 
 if [[ "$install_choice" == "y" ]]; then

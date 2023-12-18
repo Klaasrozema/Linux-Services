@@ -9,3 +9,7 @@
 
 	sudo rm -rf Linux-Services 
 	sudo git clone https://github.com/Klaasrozema/Linux-Services
+
+	echo "####################"
+	echo "Update voltooid. "
+	echo "####################"

@@ -33,8 +33,7 @@ Voor het realiseren van de opdracht zal gebruik worden gemaakt van de volgende s
 		- Logging naar hoofdserver
 		- Docker
 
-Om de logservice te realiseren wordt gebruik gemaakt van syslog.
-Om de monitoring te realiseren wordt gebruik gemaakt van Nagios.
+Om de logservice en monitoring te realiseren wordt gebruik gemaakt van de Elastic Stack. (Elastic, Kibana, Logstash, Filebeat)
 
-De keuze voor beide services is tot stand gekomen door eerdere ervaring met beide services in eerdere projecten.
+De keuze voor deze services is tot stand gekomen door eerdere ervaring met deze services in eerdere projecten.
 

@@ -5,11 +5,11 @@
 #   Author: Klaas Rozema
 #   --------------------
 
-#filebeat install
+# Installatie Filebeat
 sudo apt update
 sudo apt install filebeat
 
-# Filebeat-configuratie
+# Filebeat configuratie
 sudo tee /etc/filebeat/filebeat.yml > /dev/null <<EOF
 filebeat.inputs:
 - type: log
@@ -22,7 +22,7 @@ output.logstash:
 
 EOF
 
-# Start Filebeat en enable autostart
+# Enable en start Filebeat
 sudo systemctl start filebeat
 sudo systemctl enable filebeat
 
