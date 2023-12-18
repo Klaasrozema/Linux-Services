@@ -15,16 +15,20 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /var/log/syslog  # Voorbeeld van een logbestand, pas dit aan op basis van je behoeften
+    - /var/log/syslog
 
 output.logstash:
-  hosts: ["central_logstash_server:5000"] # Vervang 'central_logstash_server' door het IP-adres of de hostnaam van je centrale logstash-server
+  hosts: ["192.168.2.11:5000"]
 
 EOF
 
 # Start Filebeat en enable autostart
 sudo systemctl start filebeat
 sudo systemctl enable filebeat
+
+echo "####################"
+echo "Installatie Filebeat voltooid. "
+echo "####################"
 
 # Controleer de Filebeat-status
 sudo systemctl status filebeat

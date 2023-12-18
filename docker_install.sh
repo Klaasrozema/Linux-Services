@@ -23,6 +23,9 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker
 sudo systemctl start docker
 
+echo "####################"
+echo "Installatie Docker voltooid. "
+echo "####################"
 
 # Controleer geïnstalleerde Docker versie
 docker --version
