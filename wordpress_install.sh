@@ -1,4 +1,4 @@
- #!/bin/bash  
+#!/bin/bash  
 
 #   --------------------
 #   File: salt.sh
@@ -33,6 +33,7 @@
  sudo touch /etc/apache2/sites-available/wordpress.conf
  sudo chmod 777 $/etc/apache2/sites-available/wordpress.conf
  
+ #configuratie
  sh -c "echo 'Alias /blog /usr/share/wordpress
 <Directory /usr/share/wordpress>
     Options FollowSymLinks

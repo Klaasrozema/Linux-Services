@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #	--------------------
 #	File: setup.sh
 #	Author: Klaas Rozema
