@@ -17,7 +17,7 @@ sudo sh -c 'echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main"
 
 sudo apt update
 
-# Installeer Elasticsearch
+# Installeer Elasticsearch en updates
 sudo apt install elasticsearch -y
 
 # Start Elasticsearch service
